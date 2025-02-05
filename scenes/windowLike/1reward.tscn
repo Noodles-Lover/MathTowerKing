@@ -1,0 +1,119 @@
+[gd_scene load_steps=12 format=3 uid="uid://c6elh3e7gwnu5"]
+
+[ext_resource type="Script" path="res://scripts/roots/1rewardRoot.gd" id="1_7jrk7"]
+[ext_resource type="Texture2D" uid="uid://btcc0dm3grd7m" path="res://static/宝箱聚焦线素材.png" id="2_3hlee"]
+[ext_resource type="PackedScene" uid="uid://cq4btgnpn2qtu" path="res://scenes/part_of/rune.tscn" id="3_3iyat"]
+[ext_resource type="FontFile" uid="uid://djnbahww4q3sk" path="res://static/HYPixel11pxU-2.ttf" id="4_glg6t"]
+[ext_resource type="Texture2D" uid="uid://bkk08qyqfj3sc" path="res://static/titleStone.png" id="4_m2im6"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mhfuj"]
+bg_color = Color(0.486275, 0.486275, 0.486275, 0.705882)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lg0qv"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_b4uog"]
+bg_color = Color(0, 0.929412, 0, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8iwfs"]
+bg_color = Color(0.941176, 0.141176, 0.141176, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ioudp"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="LabelSettings" id="LabelSettings_fsy4w"]
+font = ExtResource("4_glg6t")
+font_size = 42
+font_color = Color(0.572549, 0.00392157, 0.909804, 1)
+outline_size = 3
+outline_color = Color(0.964706, 0.278431, 1, 1)
+shadow_size = 0
+shadow_color = Color(0, 0, 0, 0.152941)
+
+[node name="1reward" type="Node2D"]
+script = ExtResource("1_7jrk7")
+
+[node name="bg" type="Panel" parent="."]
+offset_right = 1152.0
+offset_bottom = 648.0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_mhfuj")
+metadata/_edit_lock_ = true
+
+[node name="runeDisplay" type="PanelContainer" parent="."]
+offset_left = 336.0
+offset_top = 64.0
+offset_right = 656.0
+offset_bottom = 384.0
+scale = Vector2(1.5, 1.5)
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_lg0qv")
+
+[node name="brightEffect" type="Sprite2D" parent="runeDisplay"]
+position = Vector2(160.25, 160.25)
+scale = Vector2(0.3195, 0.3195)
+texture = ExtResource("2_3hlee")
+
+[node name="rune" parent="runeDisplay" instance=ExtResource("3_3iyat")]
+visible = false
+position = Vector2(160, 160)
+
+[node name="buttonContainer" type="HBoxContainer" parent="."]
+offset_left = 320.0
+offset_top = 544.0
+offset_right = 832.0
+offset_bottom = 608.0
+alignment = 1
+
+[node name="yes" type="Button" parent="buttonContainer"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_glg6t")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxFlat_b4uog")
+text = "收下"
+
+[node name="space" type="Control" parent="buttonContainer"]
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
+
+[node name="no" type="Button" parent="buttonContainer"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_glg6t")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxFlat_8iwfs")
+text = "丢弃"
+
+[node name="titleContainer" type="PanelContainer" parent="."]
+offset_left = 352.0
+offset_top = 16.0
+offset_right = 800.0
+offset_bottom = 128.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_ioudp")
+
+[node name="TitleStone" type="Sprite2D" parent="titleContainer"]
+position = Vector2(224, 56)
+scale = Vector2(0.290949, 0.175553)
+texture = ExtResource("4_m2im6")
+
+[node name="title" type="Label" parent="titleContainer"]
+layout_mode = 2
+text = "符文名字最多九个字
+"
+label_settings = SubResource("LabelSettings_fsy4w")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="buttonContainer/yes" to="." method="_on_yes_pressed"]
+[connection signal="pressed" from="buttonContainer/no" to="." method="_on_no_pressed"]

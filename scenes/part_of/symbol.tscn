@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://bttixv3tm5fyq"]
+
+[ext_resource type="Script" path="res://scripts/roots/symbolRoot.gd" id="1_i5n5e"]
+[ext_resource type="Texture2D" uid="uid://cijlmxx5vlu2w" path="res://static/math/divide.tres" id="2_xsdo2"]
+
+[node name="symbol" type="Node2D"]
+script = ExtResource("1_i5n5e")
+
+[node name="s" type="TextureRect" parent="."]
+visible = false
+custom_minimum_size = Vector2(40, 50)
+offset_right = 40.0
+offset_bottom = 50.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("2_xsdo2")
+stretch_mode = 5

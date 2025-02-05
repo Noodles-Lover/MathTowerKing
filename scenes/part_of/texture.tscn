@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://stvmmpleddii"]
+
+[ext_resource type="Script" path="res://scripts/roots/textureRoot.gd" id="1_ckmh3"]
+[ext_resource type="Texture2D" uid="uid://dqqoctkkt06y3" path="res://static/chest.png" id="1_po4u3"]
+
+[node name="texture" type="Node2D"]
+script = ExtResource("1_ckmh3")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_right = 50.0
+offset_bottom = 50.0
+texture = ExtResource("1_po4u3")
+expand_mode = 1

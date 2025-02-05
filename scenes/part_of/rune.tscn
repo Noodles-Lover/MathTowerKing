@@ -1,0 +1,37 @@
+[gd_scene load_steps=3 format=3 uid="uid://cq4btgnpn2qtu"]
+
+[ext_resource type="Script" path="res://scripts/roots/runeRoot.gd" id="1_a5ehp"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7om41"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_blend = true
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[node name="rune" type="Node2D"]
+script = ExtResource("1_a5ehp")
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+offset_left = -24.0
+offset_top = -24.0
+offset_right = 26.0
+offset_bottom = 26.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_7om41")
+
+[node name="Button" type="Button" parent="PanelContainer"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+mouse_filter = 1
+
+[node name="runeTexture" type="TextureRect" parent="PanelContainer"]
+layout_mode = 2
+tooltip_text = "--"
+expand_mode = 1
+
+[connection signal="pressed" from="PanelContainer/Button" to="." method="_on_rune_pressed"]

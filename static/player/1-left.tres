@@ -1,0 +1,7 @@
+[gd_resource type="AtlasTexture" load_steps=2 format=3 uid="uid://cpfamsy2yv0ri"]
+
+[ext_resource type="Texture2D" uid="uid://dfidqiqv84tvx" path="res://static/asserts/Small-8-Direction-Characters_by_AxulArt.png" id="1_8d7i5"]
+
+[resource]
+atlas = ExtResource("1_8d7i5")
+region = Rect2(96, 144, 16, 24)

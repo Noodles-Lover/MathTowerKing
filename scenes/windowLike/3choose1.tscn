@@ -1,0 +1,75 @@
+[gd_scene load_steps=6 format=3 uid="uid://b5yxsob4fwg7e"]
+
+[ext_resource type="Script" path="res://scripts/roots/3choose1Root.gd" id="1_3n5f6"]
+[ext_resource type="Texture2D" uid="uid://btcc0dm3grd7m" path="res://static/宝箱聚焦线素材.png" id="2_134sa"]
+[ext_resource type="PackedScene" uid="uid://cneki0l6f6mq1" path="res://scenes/part_of/item.tscn" id="3_6y2wa"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mhfuj"]
+bg_color = Color(0.486275, 0.486275, 0.486275, 0.588235)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lg0qv"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[node name="3choose1" type="Node2D"]
+script = ExtResource("1_3n5f6")
+
+[node name="bg" type="Panel" parent="."]
+offset_right = 1152.0
+offset_bottom = 648.0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_mhfuj")
+metadata/_edit_lock_ = true
+
+[node name="0" type="PanelContainer" parent="."]
+offset_left = 64.0
+offset_top = 168.0
+offset_right = 384.0
+offset_bottom = 488.0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_lg0qv")
+
+[node name="宝箱聚焦线素材" type="Sprite2D" parent="0"]
+position = Vector2(160.25, 160.25)
+scale = Vector2(0.3195, 0.3195)
+texture = ExtResource("2_134sa")
+
+[node name="item" parent="0" instance=ExtResource("3_6y2wa")]
+visible = false
+position = Vector2(112, 112)
+scale = Vector2(2, 2)
+
+[node name="1" type="PanelContainer" parent="."]
+offset_left = 416.0
+offset_top = 168.0
+offset_right = 736.0
+offset_bottom = 488.0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_lg0qv")
+
+[node name="宝箱聚焦线素材" type="Sprite2D" parent="1"]
+position = Vector2(160.25, 160.25)
+scale = Vector2(0.3195, 0.3195)
+texture = ExtResource("2_134sa")
+
+[node name="item" parent="1" instance=ExtResource("3_6y2wa")]
+visible = false
+position = Vector2(112, 112)
+scale = Vector2(2, 2)
+
+[node name="2" type="PanelContainer" parent="."]
+offset_left = 768.0
+offset_top = 168.0
+offset_right = 1088.0
+offset_bottom = 488.0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_lg0qv")
+
+[node name="宝箱聚焦线素材" type="Sprite2D" parent="2"]
+position = Vector2(160.25, 160.25)
+scale = Vector2(0.3195, 0.3195)
+texture = ExtResource("2_134sa")
+
+[node name="item" parent="2" instance=ExtResource("3_6y2wa")]
+visible = false
+position = Vector2(112, 112)
+scale = Vector2(2, 2)

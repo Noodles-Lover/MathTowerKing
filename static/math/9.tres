@@ -1,0 +1,8 @@
+[gd_resource type="AtlasTexture" load_steps=2 format=3 uid="uid://dm3acs62n5ys4"]
+
+[ext_resource type="Texture2D" uid="uid://cuwumavoxlma7" path="res://static/asserts/math_assert.png" id="1_1cml8"]
+
+[resource]
+atlas = ExtResource("1_1cml8")
+region = Rect2(72, 0, 8, 16)
+filter_clip = true

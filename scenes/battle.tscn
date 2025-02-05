@@ -1,0 +1,139 @@
+[gd_scene load_steps=9 format=3 uid="uid://dhpm1y65tgfw3"]
+
+[ext_resource type="PackedScene" uid="uid://bor7u0govl617" path="res://scenes/part_of/number.tscn" id="1_kq52u"]
+[ext_resource type="Script" path="res://scripts/roots/battleRoot.gd" id="1_qpluy"]
+[ext_resource type="PackedScene" uid="uid://bttixv3tm5fyq" path="res://scenes/part_of/symbol.tscn" id="2_p7mrq"]
+[ext_resource type="Script" path="res://scripts/formula.gd" id="3_n05cv"]
+[ext_resource type="FontFile" uid="uid://djnbahww4q3sk" path="res://static/HYPixel11pxU-2.ttf" id="5_rkxxx"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_r3g5v"]
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+shadow_size = 10
+shadow_offset = Vector2(1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3rfaj"]
+bg_color = Color(0.929412, 0.929412, 0.929412, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.294118, 0.294118, 0.294118, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+expand_margin_left = 5.0
+expand_margin_top = 5.0
+expand_margin_right = 5.0
+expand_margin_bottom = 5.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_otpc6"]
+bg_color = Color(0.878431, 0, 0, 1)
+
+[node name="battle" type="Node2D"]
+script = ExtResource("1_qpluy")
+targetNum = null
+isEnemy = null
+
+[node name="background" type="ColorRect" parent="."]
+offset_right = 1152.0
+offset_bottom = 648.0
+color = Color(0.34902, 0.34902, 0.34902, 1)
+metadata/_edit_lock_ = true
+
+[node name="battleContainer" type="PanelContainer" parent="."]
+offset_left = 128.0
+offset_top = 64.0
+offset_right = 1024.0
+offset_bottom = 512.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_r3g5v")
+
+[node name="innerContainer" type="VBoxContainer" parent="battleContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+alignment = 1
+
+[node name="target" parent="battleContainer/innerContainer" instance=ExtResource("1_kq52u")]
+visible = false
+position = Vector2(270, 17)
+scale = Vector2(3, 3)
+
+[node name="Space" type="Control" parent="battleContainer/innerContainer"]
+custom_minimum_size = Vector2(0, 200)
+layout_mode = 2
+
+[node name="FormulaContainer" type="PanelContainer" parent="battleContainer/innerContainer"]
+custom_minimum_size = Vector2(700, 100)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_3rfaj")
+script = ExtResource("3_n05cv")
+
+[node name="left" parent="battleContainer/innerContainer/FormulaContainer" instance=ExtResource("1_kq52u")]
+scale = Vector2(2, 2)
+num = -1
+
+[node name="symbol" parent="battleContainer/innerContainer/FormulaContainer" instance=ExtResource("2_p7mrq")]
+position = Vector2(210, 0)
+scale = Vector2(2, 2)
+
+[node name="right" parent="battleContainer/innerContainer/FormulaContainer" instance=ExtResource("1_kq52u")]
+position = Vector2(300, 0)
+scale = Vector2(2, 2)
+num = -1
+
+[node name="equal" parent="battleContainer/innerContainer/FormulaContainer" instance=ExtResource("2_p7mrq")]
+position = Vector2(410, 0)
+scale = Vector2(2, 2)
+symbol = "="
+
+[node name="result" parent="battleContainer/innerContainer/FormulaContainer" instance=ExtResource("1_kq52u")]
+position = Vector2(500, 0)
+scale = Vector2(2, 2)
+num = -1
+
+[node name="Space2" type="Control" parent="battleContainer/innerContainer"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+
+[node name="buttonContainer" type="HBoxContainer" parent="battleContainer/innerContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="calculateButton" type="Button" parent="battleContainer/innerContainer/buttonContainer"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_rkxxx")
+theme_override_font_sizes/font_size = 32
+text = "运算"
+icon_alignment = 1
+
+[node name="attackButton" type="Button" parent="battleContainer/innerContainer/buttonContainer"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_rkxxx")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxFlat_otpc6")
+text = "攻击"
+icon_alignment = 1
+
+[node name="Inventory" type="HBoxContainer" parent="."]
+offset_top = 544.0
+offset_right = 1152.0
+offset_bottom = 648.0
+alignment = 1
+
+[connection signal="attack" from="battleContainer/innerContainer/FormulaContainer" to="." method="attack"]
+[connection signal="updateFormula" from="battleContainer/innerContainer/FormulaContainer" to="battleContainer/innerContainer/FormulaContainer/left" method="render"]
+[connection signal="updateFormula" from="battleContainer/innerContainer/FormulaContainer" to="battleContainer/innerContainer/FormulaContainer/symbol" method="render"]
+[connection signal="updateFormula" from="battleContainer/innerContainer/FormulaContainer" to="battleContainer/innerContainer/FormulaContainer/right" method="render"]
+[connection signal="updateFormula" from="battleContainer/innerContainer/FormulaContainer" to="battleContainer/innerContainer/FormulaContainer/result" method="render"]
+[connection signal="button_down" from="battleContainer/innerContainer/buttonContainer/calculateButton" to="battleContainer/innerContainer/FormulaContainer" method="calculate"]
+[connection signal="button_down" from="battleContainer/innerContainer/buttonContainer/attackButton" to="battleContainer/innerContainer/FormulaContainer" method="_on_attack_button_down"]

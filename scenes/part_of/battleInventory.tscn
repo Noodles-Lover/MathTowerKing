@@ -1,0 +1,47 @@
+[gd_scene load_steps=5 format=3 uid="uid://r5f43bgfgd7o"]
+
+[ext_resource type="Script" path="res://scripts/roots/battleInventoryRoot.gd" id="1_o8o6h"]
+[ext_resource type="PackedScene" uid="uid://bor7u0govl617" path="res://scenes/part_of/number.tscn" id="2_cjajs"]
+[ext_resource type="FontFile" uid="uid://djnbahww4q3sk" path="res://static/HYPixel11pxU-2.ttf" id="3_1oieu"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_1si6y"]
+font_size = 25
+outline_size = 1
+
+[node name="battleInventory" type="Control"]
+custom_minimum_size = Vector2(85, 85)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -1067.0
+offset_bottom = -563.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_o8o6h")
+amount = 9
+
+[node name="PanelContainer" type="Button" parent="."]
+custom_minimum_size = Vector2(85, 85)
+layout_mode = 0
+offset_right = 85.0
+offset_bottom = 85.0
+
+[node name="number" parent="PanelContainer" instance=ExtResource("2_cjajs")]
+visible = false
+scale = Vector2(1.5, 1.5)
+
+[node name="amountPoint" type="Node2D" parent="PanelContainer"]
+z_index = 1
+position = Vector2(60, 40)
+scale = Vector2(1.5, 1.5)
+
+[node name="amount" type="Label" parent="PanelContainer/amountPoint"]
+offset_right = 14.0
+offset_bottom = 37.0
+size_flags_vertical = 1
+theme_override_fonts/font = ExtResource("3_1oieu")
+text = "1"
+label_settings = SubResource("LabelSettings_1si6y")
+
+[connection signal="button_down" from="PanelContainer" to="." method="_on_inventory_button_down"]

@@ -1,0 +1,74 @@
+[gd_scene load_steps=5 format=3 uid="uid://bf4g1jv3c66tb"]
+
+[ext_resource type="FontFile" uid="uid://djnbahww4q3sk" path="res://static/HYPixel11pxU-2.ttf" id="1_mpqe8"]
+[ext_resource type="Script" path="res://scripts/button2scene.gd" id="1_ui6s2"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vr4p7"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="LabelSettings" id="LabelSettings_xe4ua"]
+font = ExtResource("1_mpqe8")
+font_size = 24
+
+[node name="desciption" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="background" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+color = Color(0.34902, 0.34902, 0.34902, 1)
+metadata/_edit_lock_ = true
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -483.0
+offset_top = -90.5
+offset_right = 483.0
+offset_bottom = 90.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_vr4p7")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -483.0
+offset_top = -96.5
+offset_right = 483.0
+offset_bottom = 96.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "每走一格消耗1体力，体力为0或场上为空时自动进入下一层
+战斗：使用自身数字和运算符号使得运算结果尽可能接近目标数值，攻击后受到自身与对方差值的伤害
+敌人：红色数字。消耗过程使用的物品，体力为0时会依次受到全地图中敌人数值的伤害
+朋友：绿色数字。战斗后会返回使用的物品，并获得该朋友数值的数字物品
+宝箱：获得数字或运算符号，有概率出符文
+符文：获得各种被动效果，最多存储9个
+注：得出负数时会变为0；除法舍去余数（向下取整）；战斗有概率会有随机初始数"
+label_settings = SubResource("LabelSettings_xe4ua")
+
+[node name="back" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_mpqe8")
+theme_override_font_sizes/font_size = 32
+text = "返回"
+script = ExtResource("1_ui6s2")
+scenePath = "res://scenes/start.tscn"

@@ -1,0 +1,58 @@
+[gd_scene load_steps=5 format=3 uid="uid://cto84klktm44i"]
+
+[ext_resource type="Script" path="res://scripts/test2.gd" id="1_3nins"]
+[ext_resource type="PackedScene" uid="uid://bor7u0govl617" path="res://scenes/part_of/number.tscn" id="1_bkrjt"]
+[ext_resource type="Script" path="res://scripts/test.gd" id="2_m7j2e"]
+[ext_resource type="PackedScene" uid="uid://r5f43bgfgd7o" path="res://scenes/part_of/battleInventory.tscn" id="4_i2xc4"]
+
+[node name="test2" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="test2" type="Control" parent="."]
+anchors_preset = 0
+script = ExtResource("1_3nins")
+
+[node name="test" type="Control" parent="test2"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("2_m7j2e")
+
+[node name="number" parent="." instance=ExtResource("1_bkrjt")]
+num = 9
+
+[node name="Container" type="Container" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Node" type="Node" parent="Container"]
+
+[node name="battleInventory" parent="." instance=ExtResource("4_i2xc4")]
+layout_mode = 1
+offset_left = 80.0
+offset_top = 49.0
+offset_right = -987.0
+offset_bottom = -514.0
+
+[node name="battleInventory2" parent="." instance=ExtResource("4_i2xc4")]
+layout_mode = 1
+offset_left = 168.0
+offset_top = 212.0
+offset_right = -899.0
+offset_bottom = -351.0
+amount = 15
+
+[node name="battleInventory3" parent="." instance=ExtResource("4_i2xc4")]
+layout_mode = 1
+offset_left = 314.0
+offset_top = 74.0
+offset_right = -753.0
+offset_bottom = -489.0
+amount = 34

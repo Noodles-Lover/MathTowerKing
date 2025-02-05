@@ -1,0 +1,174 @@
+[gd_scene load_steps=9 format=3 uid="uid://dg3bgrojipx78"]
+
+[ext_resource type="Script" path="res://scripts/test.gd" id="1_52r73"]
+[ext_resource type="Script" path="res://scripts/button2scene.gd" id="1_xvt5o"]
+[ext_resource type="FontFile" uid="uid://djnbahww4q3sk" path="res://static/HYPixel11pxU-2.ttf" id="2_2fa0t"]
+[ext_resource type="PackedScene" uid="uid://bor7u0govl617" path="res://scenes/part_of/number.tscn" id="2_j3u6i"]
+[ext_resource type="PackedScene" uid="uid://bttixv3tm5fyq" path="res://scenes/part_of/symbol.tscn" id="3_j2lwo"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_bnwoq"]
+font = ExtResource("2_2fa0t")
+font_size = 72
+font_color = Color(0, 0, 0, 1)
+outline_size = 5
+outline_color = Color(1, 1, 0, 1)
+shadow_size = 5
+shadow_color = Color(0.388235, 0.388235, 0.388235, 0.415686)
+shadow_offset = Vector2(2, 2)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lbvdc"]
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.109804, 0.109804, 0.109804, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+expand_margin_left = 50.0
+expand_margin_top = 15.0
+expand_margin_right = 50.0
+expand_margin_bottom = 15.0
+
+[sub_resource type="Theme" id="Theme_l6q46"]
+
+[node name="start" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_52r73")
+
+[node name="background" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+color = Color(0.854902, 0.854902, 0.854902, 1)
+metadata/_edit_lock_ = true
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_top = 71.0
+offset_right = 1155.0
+offset_bottom = 230.0
+text = "数学爬塔王"
+label_settings = SubResource("LabelSettings_bnwoq")
+horizontal_alignment = 1
+
+[node name="MenuContainer" type="PanelContainer" parent="."]
+layout_mode = 0
+offset_left = 304.0
+offset_top = 256.0
+offset_right = 848.0
+offset_bottom = 568.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_lbvdc")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MenuContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="startGame" type="Button" parent="MenuContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+size_flags_vertical = 4
+theme = SubResource("Theme_l6q46")
+theme_override_fonts/font = ExtResource("2_2fa0t")
+theme_override_font_sizes/font_size = 28
+text = "开始游戏"
+script = ExtResource("1_xvt5o")
+scenePath = "res://scenes/playRoom.tscn"
+
+[node name="space2" type="Control" parent="MenuContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+
+[node name="desciption" type="Button" parent="MenuContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+size_flags_vertical = 4
+theme = SubResource("Theme_l6q46")
+theme_override_fonts/font = ExtResource("2_2fa0t")
+theme_override_font_sizes/font_size = 26
+text = "游戏说明"
+script = ExtResource("1_xvt5o")
+scenePath = "res://scenes/desciption.tscn"
+
+[node name="space" type="Control" parent="MenuContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+
+[node name="endGame" type="Button" parent="MenuContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_fonts/font = ExtResource("2_2fa0t")
+theme_override_font_sizes/font_size = 28
+text = "结束游戏"
+script = ExtResource("1_xvt5o")
+
+[node name="Container" type="Container" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="number" parent="Container" instance=ExtResource("2_j3u6i")]
+position = Vector2(119, 264)
+rotation = -2.18166
+num = 1
+type = 2
+
+[node name="number2" parent="Container" instance=ExtResource("2_j3u6i")]
+position = Vector2(912, 185)
+rotation = -1.15005
+num = 5
+type = 2
+
+[node name="number3" parent="Container" instance=ExtResource("2_j3u6i")]
+position = Vector2(988, 404)
+rotation = -1.29332
+num = 3
+type = 1
+
+[node name="number4" parent="Container" instance=ExtResource("2_j3u6i")]
+position = Vector2(214, 91)
+rotation = -2.92314
+num = 7
+
+[node name="number5" parent="Container" instance=ExtResource("2_j3u6i")]
+position = Vector2(103, 536)
+rotation = -0.500112
+num = 6
+type = 1
+
+[node name="number6" parent="Container" instance=ExtResource("2_j3u6i")]
+position = Vector2(954, 606)
+rotation = 0.768486
+num = 8
+
+[node name="symbol" parent="Container" instance=ExtResource("3_j2lwo")]
+position = Vector2(79, 117)
+rotation = 0.357889
+symbol = "+"
+
+[node name="symbol2" parent="Container" instance=ExtResource("3_j2lwo")]
+position = Vector2(1081, 212)
+rotation = -0.0148862
+symbol = "-"
+
+[node name="symbol3" parent="Container" instance=ExtResource("3_j2lwo")]
+position = Vector2(734, 26)
+rotation = -0.286914
+symbol = "*"
+
+[node name="symbol4" parent="Container" instance=ExtResource("3_j2lwo")]
+position = Vector2(63, 406)
+rotation = -0.716977
+symbol = "/"
+
+[node name="symbol5" parent="Container" instance=ExtResource("3_j2lwo")]
+position = Vector2(329, 171)
+rotation = -0.344856
+symbol = "="

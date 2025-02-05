@@ -1,0 +1,92 @@
+[gd_scene load_steps=10 format=3 uid="uid://cq7uh3mhh8qkw"]
+
+[ext_resource type="Script" path="res://scripts/map.gd" id="1_0n6n6"]
+[ext_resource type="Script" path="res://scripts/blockContainer.gd" id="1_4xrcj"]
+[ext_resource type="Script" path="res://scripts/Blocks/PlayerUI.gd" id="3_unxmp"]
+[ext_resource type="Texture2D" uid="uid://cfgqaex3pp2e2" path="res://static/player/1-down.tres" id="4_54agg"]
+[ext_resource type="Script" path="res://scripts/inventoryContainer.gd" id="5_c4b7m"]
+[ext_resource type="Script" path="res://scripts/runeContainer.gd" id="6_kuoxg"]
+[ext_resource type="FontFile" uid="uid://djnbahww4q3sk" path="res://static/HYPixel11pxU-2.ttf" id="6_nrcd1"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_stlqg"]
+bg_color = Color(0.854902, 0.854902, 0.854902, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0, 0, 0, 1)
+expand_margin_left = 5.0
+expand_margin_top = 5.0
+expand_margin_right = 5.0
+expand_margin_bottom = 5.0
+
+[sub_resource type="LabelSettings" id="LabelSettings_0yeeb"]
+line_spacing = 0.0
+font = ExtResource("6_nrcd1")
+font_size = 36
+shadow_size = 5
+shadow_color = Color(0, 0, 0, 0.27451)
+
+[node name="playRoom" type="Node2D"]
+
+[node name="background" type="ColorRect" parent="."]
+offset_right = 1152.0
+offset_bottom = 648.0
+color = Color(0.34902, 0.34902, 0.34902, 1)
+metadata/_edit_lock_ = true
+
+[node name="map" type="PanelContainer" parent="background"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -299.0
+offset_top = -299.0
+offset_right = 299.0
+offset_bottom = 299.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_stlqg")
+script = ExtResource("1_0n6n6")
+
+[node name="blockContainer" type="GridContainer" parent="background/map"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+columns = 11
+script = ExtResource("1_4xrcj")
+
+[node name="Player" type="Node2D" parent="background/map"]
+position = Vector2(83, 63)
+script = ExtResource("3_unxmp")
+
+[node name="PlayerImg" type="TextureRect" parent="background/map/Player"]
+offset_right = 50.0
+offset_bottom = 70.0
+texture = ExtResource("4_54agg")
+expand_mode = 1
+
+[node name="inventoryContainer" type="VBoxContainer" parent="."]
+offset_right = 178.0
+offset_bottom = 648.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+alignment = 1
+script = ExtResource("5_c4b7m")
+
+[node name="status" type="Label" parent="."]
+offset_left = 969.0
+offset_top = 1.0
+offset_right = 1150.0
+offset_bottom = 107.0
+text = "HP: 50
+体力：50
+层数：1"
+label_settings = SubResource("LabelSettings_0yeeb")
+horizontal_alignment = 2
+
+[node name="runeContainer" type="Node2D" parent="."]
+position = Vector2(1120, 176)
+script = ExtResource("6_kuoxg")

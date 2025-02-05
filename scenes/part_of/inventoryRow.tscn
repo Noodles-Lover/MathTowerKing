@@ -1,0 +1,46 @@
+[gd_scene load_steps=6 format=3 uid="uid://beu4gxe317gjg"]
+
+[ext_resource type="Script" path="res://scripts/roots/inventoryRowRoot.gd" id="1_fju7w"]
+[ext_resource type="PackedScene" uid="uid://bor7u0govl617" path="res://scenes/part_of/number.tscn" id="1_pyvhh"]
+[ext_resource type="PackedScene" uid="uid://bttixv3tm5fyq" path="res://scenes/part_of/symbol.tscn" id="3_8523t"]
+[ext_resource type="FontFile" uid="uid://djnbahww4q3sk" path="res://static/HYPixel11pxU-2.ttf" id="4_cmet8"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_1si6y"]
+font = ExtResource("4_cmet8")
+font_size = 30
+outline_size = 1
+
+[node name="inventoryRow" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_fju7w")
+amount = 9
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 0
+offset_right = 128.0
+offset_bottom = 45.0
+
+[node name="number" parent="HBoxContainer" instance=ExtResource("1_pyvhh")]
+visible = false
+
+[node name="symbol" parent="HBoxContainer" instance=ExtResource("3_8523t")]
+position = Vector2(40, 0)
+scale = Vector2(0.8, 0.8)
+symbol = ":"
+
+[node name="amount" type="Label" parent="."]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+offset_left = 80.0
+offset_right = 130.0
+offset_bottom = 45.0
+size_flags_vertical = 1
+text = "1"
+label_settings = SubResource("LabelSettings_1si6y")
+horizontal_alignment = 1
+vertical_alignment = 1

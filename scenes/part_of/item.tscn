@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://cneki0l6f6mq1"]
+
+[ext_resource type="Script" path="res://scripts/roots/itemRoot.gd" id="1_mo5f3"]
+[ext_resource type="PackedScene" uid="uid://bor7u0govl617" path="res://scenes/part_of/number.tscn" id="2_62fl2"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_v3e6u"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[node name="item" type="Node2D"]
+script = ExtResource("1_mo5f3")
+
+[node name="Container" type="PanelContainer" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_v3e6u")
+
+[node name="Button" type="Button" parent="Container"]
+modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="number" parent="." instance=ExtResource("2_62fl2")]
+visible = false
+
+[connection signal="pressed" from="Container/Button" to="." method="_on_button_pressed"]

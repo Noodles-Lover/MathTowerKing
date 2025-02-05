@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://bu58nw07vkpls"]
+
+[ext_resource type="Texture2D" uid="uid://dqqoctkkt06y3" path="res://static/chest.png" id="1_po4u3"]
+
+[node name="chest" type="Node2D"]
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_right = 50.0
+offset_bottom = 50.0
+texture = ExtResource("1_po4u3")
+expand_mode = 1
