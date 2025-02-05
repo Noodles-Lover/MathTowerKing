@@ -13,7 +13,7 @@ config_version=5
 config/name="数学爬塔王"
 run/main_scene="res://scenes/start.tscn"
 config/features=PackedStringArray("4.1", "GL Compatibility")
-config/icon="res://数字爬塔王icon.png"
+config/icon="res://icon.png"
 config/windows_native_icon="res://数字爬塔王icon.ico"
 
 [autoload]
