@@ -47,21 +47,23 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -483.0
-offset_top = -96.5
-offset_right = 483.0
-offset_bottom = 96.5
+offset_left = -528.0
+offset_top = -185.0
+offset_right = 528.0
+offset_bottom = 185.0
 grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Label" type="Label" parent="VBoxContainer"]
 layout_mode = 2
 text = "每走一格消耗1体力，体力为0或场上为空时自动进入下一层
-战斗：使用自身数字和运算符号使得运算结果尽可能接近目标数值，攻击后受到自身与对方差值的伤害
-敌人：红色数字。消耗过程使用的物品，体力为0时会依次受到全地图中敌人数值的伤害
-朋友：绿色数字。战斗后会返回使用的物品，并获得该朋友数值的数字物品
-宝箱：获得数字或运算符号，有概率出符文
-符文：获得各种被动效果，最多存储9个
+> 战斗：使用自身数字和运算符号使得运算结果尽可能接近目标数值，攻击后受到自身与对方差值的伤
+害并结束战斗
+> 敌人：红色数字。进行战斗，消耗过程使用的物品，体力为0时会依次受到全地图中敌人数值的伤害
+> 朋友：绿色数字。进行战斗，战斗后会返回使用的物品，并获得该朋友数值的数字物品
+> 宝箱：获得数字或运算符号，有概率出符文
+> 符文：获得各种被动效果，最多存储9个
+> 营火：+5HP和+5体力
 注：得出负数时会变为0；除法舍去余数（向下取整）；战斗有概率会有随机初始数"
 label_settings = SubResource("LabelSettings_xe4ua")
 
