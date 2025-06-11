@@ -1,10 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://dhpm1y65tgfw3"]
+[gd_scene load_steps=13 format=3 uid="uid://dhpm1y65tgfw3"]
 
 [ext_resource type="PackedScene" uid="uid://bor7u0govl617" path="res://scenes/part_of/number.tscn" id="1_kq52u"]
 [ext_resource type="Script" path="res://scripts/roots/battleRoot.gd" id="1_qpluy"]
 [ext_resource type="PackedScene" uid="uid://bttixv3tm5fyq" path="res://scenes/part_of/symbol.tscn" id="2_p7mrq"]
 [ext_resource type="Script" path="res://scripts/formula.gd" id="3_n05cv"]
-[ext_resource type="FontFile" uid="uid://djnbahww4q3sk" path="res://static/HYPixel11pxU-2.ttf" id="5_rkxxx"]
+[ext_resource type="FontFile" uid="uid://djnbahww4q3sk" path="res://static/HYPixel.ttf" id="5_64i65"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_r3g5v"]
 corner_radius_top_left = 5
@@ -30,13 +30,67 @@ expand_margin_top = 5.0
 expand_margin_right = 5.0
 expand_margin_bottom = 5.0
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_u2a2p"]
+bg_color = Color(0.25098, 1, 0.211765, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+expand_margin_left = 3.0
+expand_margin_top = 3.0
+expand_margin_right = 1.0
+expand_margin_bottom = 1.0
+shadow_color = Color(0, 0, 0, 0.666667)
+shadow_size = 4
+shadow_offset = Vector2(2, 2)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1d8os"]
+bg_color = Color(0.0588235, 0.878431, 0, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+expand_margin_right = 3.0
+expand_margin_bottom = 3.0
+shadow_color = Color(0, 0, 0, 0.784314)
+shadow_size = 1
+shadow_offset = Vector2(1, 1)
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_otpc6"]
-bg_color = Color(0.878431, 0, 0, 1)
+bg_color = Color(0.933333, 0, 0, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+expand_margin_left = 3.0
+expand_margin_top = 3.0
+expand_margin_right = 1.0
+expand_margin_bottom = 1.0
+shadow_color = Color(0, 0, 0, 0.666667)
+shadow_size = 4
+shadow_offset = Vector2(2, 2)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_l2v7b"]
+bg_color = Color(0.760784, 0, 0, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+expand_margin_right = 3.0
+expand_margin_bottom = 3.0
+shadow_color = Color(0, 0, 0, 0.784314)
+shadow_size = 1
+shadow_offset = Vector2(1, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_ueynx"]
+line_spacing = 0.0
+font = ExtResource("5_64i65")
+font_size = 36
+shadow_size = 5
+shadow_color = Color(0, 0, 0, 0.27451)
 
 [node name="battle" type="Node2D"]
 script = ExtResource("1_qpluy")
-targetNum = null
-isEnemy = null
 
 [node name="background" type="ColorRect" parent="."]
 offset_right = 1152.0
@@ -110,17 +164,27 @@ alignment = 1
 [node name="calculateButton" type="Button" parent="battleContainer/innerContainer/buttonContainer"]
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
-theme_override_fonts/font = ExtResource("5_rkxxx")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_64i65")
 theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxFlat_u2a2p")
+theme_override_styles/hover = SubResource("StyleBoxFlat_1d8os")
 text = "运算"
 icon_alignment = 1
+
+[node name="space" type="Control" parent="battleContainer/innerContainer/buttonContainer"]
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 2
 
 [node name="attackButton" type="Button" parent="battleContainer/innerContainer/buttonContainer"]
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
-theme_override_fonts/font = ExtResource("5_rkxxx")
+theme_override_fonts/font = ExtResource("5_64i65")
 theme_override_font_sizes/font_size = 32
 theme_override_styles/normal = SubResource("StyleBoxFlat_otpc6")
+theme_override_styles/hover = SubResource("StyleBoxFlat_l2v7b")
 text = "攻击"
 icon_alignment = 1
 
@@ -129,6 +193,15 @@ offset_top = 544.0
 offset_right = 1152.0
 offset_bottom = 648.0
 alignment = 1
+
+[node name="hp" type="Label" parent="."]
+offset_left = 1016.0
+offset_top = 1.0
+offset_right = 1150.0
+offset_bottom = 64.0
+text = "HP: 30"
+label_settings = SubResource("LabelSettings_ueynx")
+horizontal_alignment = 2
 
 [connection signal="attack" from="battleContainer/innerContainer/FormulaContainer" to="." method="attack"]
 [connection signal="updateFormula" from="battleContainer/innerContainer/FormulaContainer" to="battleContainer/innerContainer/FormulaContainer/left" method="render"]

@@ -26,6 +26,7 @@ func _on_Button_Pressed():
 			AudioPlayer.playBGM()
 			
 		get_tree().change_scene_to_file(scenePath)		#跳转
+		
 	else:
 		get_tree().quit()	#退出游戏
 

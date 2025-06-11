@@ -12,7 +12,7 @@ func _process(delta):
 	pass
 
 func render():
-	GameManager.remove_all_children(self)
+	Global.remove_all_children(self)
 	
 	if (!symbol):	# 下划线
 		var UIsymbol = TextureRect.new()

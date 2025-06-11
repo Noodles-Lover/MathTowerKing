@@ -30,8 +30,6 @@ offset_bottom = 85.0
 [node name="number" parent="PanelContainer" instance=ExtResource("2_7ecl1")]
 visible = false
 scale = Vector2(1.5, 1.5)
-num = null
-type = null
 
 [node name="amountPoint" type="Node2D" parent="PanelContainer"]
 position = Vector2(60, 40)

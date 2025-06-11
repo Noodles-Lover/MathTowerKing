@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scripts/roots/battleInventoryRoot.gd" id="1_o8o6h"]
 [ext_resource type="PackedScene" uid="uid://bor7u0govl617" path="res://scenes/part_of/number.tscn" id="2_cjajs"]
-[ext_resource type="FontFile" uid="uid://djnbahww4q3sk" path="res://static/HYPixel11pxU-2.ttf" id="3_1oieu"]
+[ext_resource type="FontFile" uid="uid://djnbahww4q3sk" path="res://static/HYPixel.ttf" id="3_cbs2a"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_1si6y"]
 font_size = 25
@@ -40,7 +40,7 @@ scale = Vector2(1.5, 1.5)
 offset_right = 14.0
 offset_bottom = 37.0
 size_flags_vertical = 1
-theme_override_fonts/font = ExtResource("3_1oieu")
+theme_override_fonts/font = ExtResource("3_cbs2a")
 text = "1"
 label_settings = SubResource("LabelSettings_1si6y")
 

@@ -14,7 +14,7 @@ func execute():
 	if Global.posibility(Global.runeRate):	# 出符文概率
 		var scene = load("res://scenes/windowLike/1reward.tscn").instantiate()
 		scene.rune = Rune.newRandomRune()
-		GameManager.nodeTree.root.add_child(scene)
+		Global.nodeTree.root.add_child(scene)
 		
 		AudioPlayer.playAudio("ChestRune")
 		destorySelf()
@@ -36,7 +36,7 @@ func execute():
 		
 	var scene = load("res://scenes/windowLike/3choose1.tscn").instantiate()
 	scene.items = items
-	GameManager.nodeTree.root.add_child(scene)
+	Global.nodeTree.root.add_child(scene)
 	
 	destorySelf()
 

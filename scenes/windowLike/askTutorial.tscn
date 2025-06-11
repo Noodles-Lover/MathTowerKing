@@ -1,0 +1,134 @@
+[gd_scene load_steps=11 format=3 uid="uid://022ahi23shi3"]
+
+[ext_resource type="Script" path="res://scripts/roots/askTutorialRoot.gd" id="1_m0wvm"]
+[ext_resource type="FontFile" uid="uid://djnbahww4q3sk" path="res://static/HYPixel.ttf" id="4_8abko"]
+[ext_resource type="Texture2D" uid="uid://bkk08qyqfj3sc" path="res://static/titleStone.png" id="5_hts37"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mhfuj"]
+bg_color = Color(0.486275, 0.486275, 0.486275, 0.705882)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_b4uog"]
+bg_color = Color(0, 0.952941, 0, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_n2n51"]
+bg_color = Color(0, 0.792157, 0, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+expand_margin_left = 4.0
+expand_margin_top = 4.0
+expand_margin_right = 4.0
+expand_margin_bottom = 4.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tkfxp"]
+bg_color = Color(0.968627, 0.14902, 0.14902, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8iwfs"]
+bg_color = Color(0.819608, 0.0980392, 0.105882, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+expand_margin_left = 4.0
+expand_margin_top = 4.0
+expand_margin_right = 4.0
+expand_margin_bottom = 4.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ioudp"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="LabelSettings" id="LabelSettings_fsy4w"]
+font = ExtResource("4_8abko")
+font_size = 42
+outline_size = 3
+outline_color = Color(0.12549, 0.12549, 0.12549, 1)
+shadow_size = 0
+shadow_color = Color(0, 0, 0, 0.152941)
+
+[node name="askTutorial" type="Node2D"]
+script = ExtResource("1_m0wvm")
+
+[node name="bg" type="Panel" parent="."]
+offset_right = 1152.0
+offset_bottom = 648.0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_mhfuj")
+metadata/_edit_lock_ = true
+
+[node name="buttonContainer" type="HBoxContainer" parent="bg"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -256.0
+offset_top = 84.0
+offset_right = 256.0
+offset_bottom = 148.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="yes" type="Button" parent="bg/buttonContainer"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_8abko")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxFlat_b4uog")
+theme_override_styles/hover = SubResource("StyleBoxFlat_n2n51")
+text = "需要"
+
+[node name="space" type="Control" parent="bg/buttonContainer"]
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
+
+[node name="no" type="Button" parent="bg/buttonContainer"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_8abko")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxFlat_tkfxp")
+theme_override_styles/hover = SubResource("StyleBoxFlat_8iwfs")
+text = "不要"
+
+[node name="titleContainer" type="PanelContainer" parent="bg"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -224.0
+offset_top = -56.0
+offset_right = 224.0
+offset_bottom = 56.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_ioudp")
+
+[node name="TitleStone" type="Sprite2D" parent="bg/titleContainer"]
+position = Vector2(224, 56)
+scale = Vector2(0.290949, 0.175553)
+texture = ExtResource("5_hts37")
+
+[node name="title" type="Label" parent="bg/titleContainer"]
+layout_mode = 2
+text = "是否需要教程"
+label_settings = SubResource("LabelSettings_fsy4w")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="bg/buttonContainer/yes" to="." method="_on_yes_pressed"]
+[connection signal="pressed" from="bg/buttonContainer/no" to="." method="_on_no_pressed"]

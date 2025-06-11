@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://cq4btgnpn2qtu"]
 
 [ext_resource type="Script" path="res://scripts/roots/runeRoot.gd" id="1_a5ehp"]
-[ext_resource type="FontFile" uid="uid://djnbahww4q3sk" path="res://static/HYPixel11pxU-2.ttf" id="2_ktfr3"]
+[ext_resource type="FontFile" uid="uid://djnbahww4q3sk" path="res://static/HYPixel.ttf" id="2_ktfr3"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7om41"]
 bg_color = Color(0.6, 0.6, 0.6, 0)

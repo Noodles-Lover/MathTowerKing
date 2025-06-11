@@ -7,20 +7,27 @@ extends Node
 
 
 func _ready():
+	
+	$hp.text = "HP: %d" % Player.hp
 	# 渲染对方数字
 	var number = Number.new(targetNum, Number.TYPE.FRIEND)
 	if (isEnemy): number = Number.new(targetNum, Number.TYPE.ENEMY)
 	
-	var scene = number.getScene()
-	scene.scale = Vector2(3, 3)
-	scene.position = Vector2(270, 10)
-	scene.name = "targetNum"
+	var numScene = number.getScene()
+	numScene.scale = Vector2(3, 3)
+	numScene.position = Vector2(270, 10)
+	numScene.name = "targetNum"
 	
-	$battleContainer/innerContainer.add_child(scene)
+	$battleContainer/innerContainer.add_child(numScene)
 	
 	Player.updateInventory.connect(renderInventory)
 	renderInventory()
 	
+	if (GameManager.needTutorial):
+		var scene = load("res://scenes/windowLike/battleTutorial.tscn").instantiate()
+		Global.nodeTree.root.add_child(scene)
+		GameManager.needTutorial = false
+
 
 func _process(delta):
 	pass
@@ -29,7 +36,7 @@ func renderInventory():
 	var inventoryNode = $Inventory
 	var formulaNode = $battleContainer/innerContainer/FormulaContainer
 	
-	GameManager.remove_all_children(inventoryNode)
+	Global.remove_all_children(inventoryNode)
 	for i in range(1,10):	# 1~9物品栏
 		var scene = BatteInventoryScene.instantiate()
 		scene.item = Number.new(i,0)
@@ -52,6 +59,8 @@ func _on_update_inventory():
 
 
 func attack(usedItems):
+	GameManager.paused = true # 防止二次触发攻击
+	
 	var leftNode = $battleContainer/innerContainer/FormulaContainer/left
 	
 	# 动画
@@ -73,8 +82,8 @@ func attack(usedItems):
 	# 动画
 	
 	# 跳转回playroom
-	var root = get_tree().root
-	GameManager.remove_all_children(root)
+	var root = Global.nodeTree.root
+	Global.remove_all_children(root)
 	var scene = load("res://scenes/playRoom.tscn").instantiate()
 	root.add_child(scene)
 	
@@ -101,4 +110,5 @@ func attack(usedItems):
 		
 	if (isEnemy): Rune.checkAllRunes(Rune.TIMING.AFTER_DEFEAT)
 	else: Rune.checkAllRunes(Rune.TIMING.AFTER_FRIEND, {"targetNum": targetNum})			# 朋友
-
+	
+	GameManager.paused = false

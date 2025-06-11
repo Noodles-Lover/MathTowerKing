@@ -1,7 +1,5 @@
 extends Node
 
-@onready var nodeTree = get_tree()
-
 var startNumAmount = 1		# 数字起始数量
 var startOpAmount = 2		# 运算符号起始数量
 var map
@@ -9,6 +7,7 @@ var map
 var level = 1
 var gameEnded = false
 var paused = false
+var needTutorial = true
 
 signal destory(row, col)
 #signal renderMap
@@ -23,6 +22,7 @@ func _process(delta):
 func initGame():
 	level = 1
 	gameEnded = false
+	paused = false
 	Player.initPlayer()
 	initMap()
 	generateMap()
@@ -77,8 +77,7 @@ func generateBlock(amount, type):
 						map[row][col] = Campfire.new(row, col)
 						print("[地图] Campfire: %d, %d" % [row, col])
 				break
-	
-	
+		
 func addItemAnimation(key):
 	if (gameEnded): return
 	
@@ -114,16 +113,7 @@ func destoryBlock(row, col):
 	
 	GameManager.map[row][col] = null
 #	print(">[GM] destoryed [%d,%d]" % [row, col])
-	
-	
-func remove_all_children(node: Node):
-	var ignoreAmount = 0
-	if node == nodeTree.root:
-		ignoreAmount = node.get_child_count()-1	 # 忽略autoload
-	while node.get_child_count() > ignoreAmount:
-		var child = node.get_child(ignoreAmount)  # 获取第一个子节点
-		node.remove_child(child)  # 从父节点中移除子节点
-		child.queue_free()  # 将子节点标记为待释放
+
 		
 # UI文本更新
 func statusUpdate():
@@ -156,7 +146,7 @@ func nextLevel():
 	
 	# 跳转回playroom
 	var root = get_tree().root
-	remove_all_children(root)
+	Global.remove_all_children(root)
 	var scene = load("res://scenes/playRoom.tscn").instantiate()
 	root.add_child(scene)
 	
@@ -184,6 +174,6 @@ func gameOver():	# 回到初始界面，全部重置（显示层数？）
 	AudioPlayer.stopBGM()
 	gameEnded = true
 	
-	remove_all_children(get_tree().root)
-	get_tree().change_scene_to_file("res://scenes/start.tscn")
+	Global.remove_all_children(Global.nodeTree.root)
+	Global.nodeTree.change_scene_to_file("res://scenes/start.tscn")
 	

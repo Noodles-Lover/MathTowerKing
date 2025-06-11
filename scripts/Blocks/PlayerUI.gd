@@ -7,6 +7,7 @@ extends Block
 #var GameManagerGD = load("res://scripts/gameManager.gd")
 
 static var instance = PlayerUI.new()
+const moveAnimationDuration = 0.1
 
 func _init():
 	pass
@@ -53,7 +54,7 @@ func moveDetect():
 			var delta = move_directions[action]
 			var new_row = row + delta.x
 			var new_col = col + delta.y
-			if placePlayer(new_row, new_col):	# 成功移动（不是地图外）
+			if movePlayer(new_row, new_col):	# 成功移动（不是地图外）
 				row = new_row
 				col = new_col
 				moved = true
@@ -83,11 +84,23 @@ func executeBlock():
 	if (GameManager.map[row][col]):
 		GameManager.map[row][col].execute()
 	
+#	静态移动
 func placePlayer(row, col) -> bool:
 	if Block.placeBlock(row, col, self):
 		self.position.y -= 20		# 因为玩家高70，Block.placeBlock为50*50
 		return true
 	return false
+
+#	动画的移动
+func movePlayer(row, col) -> bool:
+#	边界检测
+	if row >= Global.MAPSIZE or row < 0 or col >= Global.MAPSIZE or col < 0:
+		return false
+	
+	var target_pos = Vector2(4 + row * 54, 4 + col * 54 - 20)
+	var tween = create_tween()
+	tween.tween_property(self, "position", target_pos, moveAnimationDuration)
+	return true
 
 func playerFacing():
 	$PlayerImg.texture = load("res://static/player/%s-%s.tres" % [Player.skinID, Player.facingText])

@@ -1,13 +1,13 @@
 [gd_scene load_steps=5 format=3 uid="uid://bf4g1jv3c66tb"]
 
-[ext_resource type="FontFile" uid="uid://djnbahww4q3sk" path="res://static/HYPixel11pxU-2.ttf" id="1_mpqe8"]
+[ext_resource type="FontFile" uid="uid://djnbahww4q3sk" path="res://static/HYPixel.ttf" id="1_bc27b"]
 [ext_resource type="Script" path="res://scripts/button2scene.gd" id="1_ui6s2"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vr4p7"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
 
 [sub_resource type="LabelSettings" id="LabelSettings_xe4ua"]
-font = ExtResource("1_mpqe8")
+font = ExtResource("1_bc27b")
 font_size = 24
 
 [node name="desciption" type="Control"]
@@ -69,7 +69,7 @@ label_settings = SubResource("LabelSettings_xe4ua")
 
 [node name="back" type="Button" parent="VBoxContainer"]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("1_mpqe8")
+theme_override_fonts/font = ExtResource("1_bc27b")
 theme_override_font_sizes/font_size = 32
 text = "返回"
 script = ExtResource("1_ui6s2")

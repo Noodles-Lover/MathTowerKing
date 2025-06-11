@@ -22,6 +22,7 @@ func _ready():
 # battleInventoryRoot的pressedItem(item)信号（由battleRoot）连接到该函数
 # item: 0~9, +-*/
 func uploadItem(item):
+	if (GameManager.paused): return
 	print("[战斗] upload item: %d" % item)
 	
 	if (item > 9):	# 运算符号
@@ -54,6 +55,7 @@ func _process(delta):
 
 
 func calculate():
+	if (GameManager.paused): return
 	if ($left.num < 0 || $right.num < 0 || !$symbol.symbol): return
 	
 	var operator = Operator.newBySymbol($symbol.symbol)
@@ -73,4 +75,5 @@ func calculate():
 
 
 func _on_attack_button_down():
+	if (GameManager.paused): return
 	attack.emit(usedItems)

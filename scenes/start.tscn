@@ -1,13 +1,13 @@
 [gd_scene load_steps=9 format=3 uid="uid://dg3bgrojipx78"]
 
-[ext_resource type="Script" path="res://scripts/test.gd" id="1_52r73"]
 [ext_resource type="Script" path="res://scripts/button2scene.gd" id="1_xvt5o"]
-[ext_resource type="FontFile" uid="uid://djnbahww4q3sk" path="res://static/HYPixel11pxU-2.ttf" id="2_2fa0t"]
+[ext_resource type="FontFile" uid="uid://djnbahww4q3sk" path="res://static/HYPixel.ttf" id="2_3n3g7"]
 [ext_resource type="PackedScene" uid="uid://bor7u0govl617" path="res://scenes/part_of/number.tscn" id="2_j3u6i"]
 [ext_resource type="PackedScene" uid="uid://bttixv3tm5fyq" path="res://scenes/part_of/symbol.tscn" id="3_j2lwo"]
+[ext_resource type="Script" path="res://scripts/roots/mobileSwitch.gd" id="5_2ji3y"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_bnwoq"]
-font = ExtResource("2_2fa0t")
+font = ExtResource("2_3n3g7")
 font_size = 72
 font_color = Color(0, 0, 0, 1)
 outline_size = 5
@@ -40,7 +40,6 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_52r73")
 
 [node name="background" type="ColorRect" parent="."]
 layout_mode = 0
@@ -75,7 +74,7 @@ custom_minimum_size = Vector2(0, 60)
 layout_mode = 2
 size_flags_vertical = 4
 theme = SubResource("Theme_l6q46")
-theme_override_fonts/font = ExtResource("2_2fa0t")
+theme_override_fonts/font = ExtResource("2_3n3g7")
 theme_override_font_sizes/font_size = 28
 text = "开始游戏"
 script = ExtResource("1_xvt5o")
@@ -90,7 +89,7 @@ custom_minimum_size = Vector2(0, 60)
 layout_mode = 2
 size_flags_vertical = 4
 theme = SubResource("Theme_l6q46")
-theme_override_fonts/font = ExtResource("2_2fa0t")
+theme_override_fonts/font = ExtResource("2_3n3g7")
 theme_override_font_sizes/font_size = 26
 text = "游戏说明"
 script = ExtResource("1_xvt5o")
@@ -104,7 +103,7 @@ layout_mode = 2
 custom_minimum_size = Vector2(0, 60)
 layout_mode = 2
 size_flags_vertical = 4
-theme_override_fonts/font = ExtResource("2_2fa0t")
+theme_override_fonts/font = ExtResource("2_3n3g7")
 theme_override_font_sizes/font_size = 28
 text = "结束游戏"
 script = ExtResource("1_xvt5o")
@@ -172,3 +171,19 @@ symbol = "/"
 position = Vector2(329, 171)
 rotation = -0.344856
 symbol = "="
+
+[node name="mobileSwitch" type="CheckButton" parent="."]
+layout_mode = 1
+offset_right = 128.0
+offset_bottom = 45.0
+scale = Vector2(1.5, 1.5)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_3n3g7")
+text = "移动端操控"
+script = ExtResource("5_2ji3y")

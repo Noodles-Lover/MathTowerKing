@@ -11,7 +11,7 @@ func _process(delta):
 	pass
 	
 func renderRune():
-	GameManager.remove_all_children(self)
+	Global.remove_all_children(self)
 	
 	var scene
 	for i in range(9):	# 9个以上就会超出界面

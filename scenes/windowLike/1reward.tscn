@@ -1,9 +1,9 @@
-[gd_scene load_steps=12 format=3 uid="uid://c6elh3e7gwnu5"]
+[gd_scene load_steps=15 format=3 uid="uid://5tmgvm08nwwu"]
 
 [ext_resource type="Script" path="res://scripts/roots/1rewardRoot.gd" id="1_7jrk7"]
 [ext_resource type="Texture2D" uid="uid://btcc0dm3grd7m" path="res://static/宝箱聚焦线素材.png" id="2_3hlee"]
 [ext_resource type="PackedScene" uid="uid://cq4btgnpn2qtu" path="res://scenes/part_of/rune.tscn" id="3_3iyat"]
-[ext_resource type="FontFile" uid="uid://djnbahww4q3sk" path="res://static/HYPixel11pxU-2.ttf" id="4_glg6t"]
+[ext_resource type="FontFile" uid="uid://djnbahww4q3sk" path="res://static/HYPixel.ttf" id="4_ari2e"]
 [ext_resource type="Texture2D" uid="uid://bkk08qyqfj3sc" path="res://static/titleStone.png" id="4_m2im6"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mhfuj"]
@@ -12,25 +12,54 @@ bg_color = Color(0.486275, 0.486275, 0.486275, 0.705882)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lg0qv"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
 
+[sub_resource type="LabelSettings" id="LabelSettings_o5hxy"]
+line_spacing = 2.0
+font = ExtResource("4_ari2e")
+font_size = 22
+outline_color = Color(0, 0, 0, 1)
+shadow_color = Color(0, 0, 0, 0.686275)
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_b4uog"]
-bg_color = Color(0, 0.929412, 0, 1)
+bg_color = Color(0, 0.952941, 0, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_n2n51"]
+bg_color = Color(0, 0.792157, 0, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+expand_margin_left = 4.0
+expand_margin_top = 4.0
+expand_margin_right = 4.0
+expand_margin_bottom = 4.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tkfxp"]
+bg_color = Color(0.968627, 0.14902, 0.14902, 1)
 corner_radius_top_left = 10
 corner_radius_top_right = 10
 corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8iwfs"]
-bg_color = Color(0.941176, 0.141176, 0.141176, 1)
+bg_color = Color(0.819608, 0.0980392, 0.105882, 1)
 corner_radius_top_left = 10
 corner_radius_top_right = 10
 corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
+expand_margin_left = 4.0
+expand_margin_top = 4.0
+expand_margin_right = 4.0
+expand_margin_bottom = 4.0
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ioudp"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
 
 [sub_resource type="LabelSettings" id="LabelSettings_fsy4w"]
-font = ExtResource("4_glg6t")
+font = ExtResource("4_ari2e")
 font_size = 42
 font_color = Color(0.572549, 0.00392157, 0.909804, 1)
 outline_size = 3
@@ -66,20 +95,31 @@ texture = ExtResource("2_3hlee")
 visible = false
 position = Vector2(160, 160)
 
+[node name="description" type="Label" parent="runeDisplay"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+size_flags_vertical = 8
+text = "符文说明符文说明符文说明符文说明符文说明符文说明
+"
+label_settings = SubResource("LabelSettings_o5hxy")
+horizontal_alignment = 1
+autowrap_mode = 3
+
 [node name="buttonContainer" type="HBoxContainer" parent="."]
 offset_left = 320.0
-offset_top = 544.0
+offset_top = 552.0
 offset_right = 832.0
-offset_bottom = 608.0
+offset_bottom = 616.0
 alignment = 1
 
 [node name="yes" type="Button" parent="buttonContainer"]
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("4_glg6t")
+theme_override_fonts/font = ExtResource("4_ari2e")
 theme_override_font_sizes/font_size = 32
 theme_override_styles/normal = SubResource("StyleBoxFlat_b4uog")
+theme_override_styles/hover = SubResource("StyleBoxFlat_n2n51")
 text = "收下"
 
 [node name="space" type="Control" parent="buttonContainer"]
@@ -90,9 +130,10 @@ layout_mode = 2
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("4_glg6t")
+theme_override_fonts/font = ExtResource("4_ari2e")
 theme_override_font_sizes/font_size = 32
-theme_override_styles/normal = SubResource("StyleBoxFlat_8iwfs")
+theme_override_styles/normal = SubResource("StyleBoxFlat_tkfxp")
+theme_override_styles/hover = SubResource("StyleBoxFlat_8iwfs")
 text = "丢弃"
 
 [node name="titleContainer" type="PanelContainer" parent="."]

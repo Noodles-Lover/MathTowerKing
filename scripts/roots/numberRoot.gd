@@ -18,7 +18,7 @@ func _process(delta):
 	pass
 	
 func render():
-	GameManager.remove_all_children($HBoxContainer)
+	Global.remove_all_children($HBoxContainer)
 	
 	if (num < 0):	# 下划线
 		var UInum = TextureRect.new()

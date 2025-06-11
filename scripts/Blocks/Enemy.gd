@@ -14,8 +14,8 @@ func execute():
 	destorySelf()
 	
 	# 跳转到战斗
-	var root = GameManager.nodeTree.root
-	GameManager.remove_all_children(root)
+	var root = Global.nodeTree.root
+	Global.remove_all_children(root)
 	
 	var battleScene = load("res://scenes/battle.tscn").instantiate()
 	battleScene.targetNum = num

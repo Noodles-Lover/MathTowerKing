@@ -13,12 +13,12 @@ func _process(delta):
 	pass
 	
 func renderInventory():
-	GameManager.remove_all_children(self)
+	Global.remove_all_children(self)
 	for i in range(1,10):	# 1~9物品栏
 		var inventoryRowScene = InventoryRowScene.instantiate()
 		inventoryRowScene.item = Number.new(i,0)
 		inventoryRowScene.amount = Player.inventory[i]
-		inventoryRowScene.custom_minimum_size = Vector2(0, 46)
+		inventoryRowScene.custom_minimum_size = Vector2(0, 43)
 		inventoryRowScene.name = String.num_int64(i)
 		add_child(inventoryRowScene)
 		
@@ -26,7 +26,7 @@ func renderInventory():
 		var inventoryRowScene = InventoryRowScene.instantiate()
 		inventoryRowScene.item = Operator.new(i)
 		inventoryRowScene.amount = Player.inventory[i]
-		inventoryRowScene.custom_minimum_size = Vector2(0, 46)
+		inventoryRowScene.custom_minimum_size = Vector2(0, 43)
 		inventoryRowScene.name = str(i)
 		add_child(inventoryRowScene)
 

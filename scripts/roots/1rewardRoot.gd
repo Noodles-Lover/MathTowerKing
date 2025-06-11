@@ -5,17 +5,18 @@ extends Node
 func _ready():
 #	scene1.itemPressed.connect(choosedItem)
 	
-	var scene = rune.getScene()
-	scene.scale = Vector2(0.1,0.1)
-	scene.position = Vector2(160,160)
-	$runeDisplay.add_child(scene)
+	var runeScene = rune.getScene()
+	runeScene.scale = Vector2(0.1,0.1)
+	runeScene.position = Vector2(160,160)
+	$runeDisplay.add_child(runeScene)
 	
 	$titleContainer/title.text = rune.runeName
+	$runeDisplay/description.text = rune.description
 	
 	# 符文放大动画
 	var tween = get_tree().create_tween()
 	const DURATION = 0.35
-	tween.tween_property(scene, "scale",  Vector2(1.5,1.5), DURATION)	# (节点, 属性, 目标值, 时长)
+	tween.tween_property(runeScene, "scale",  Vector2(1.5,1.5), DURATION)	# (节点, 属性, 目标值, 时长)
 	
 	tween.set_ease(Tween.EASE_IN_OUT)  # 动画开始和结束时会减速
 	tween.play()

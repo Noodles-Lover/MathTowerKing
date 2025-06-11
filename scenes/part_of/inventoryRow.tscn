@@ -3,10 +3,10 @@
 [ext_resource type="Script" path="res://scripts/roots/inventoryRowRoot.gd" id="1_fju7w"]
 [ext_resource type="PackedScene" uid="uid://bor7u0govl617" path="res://scenes/part_of/number.tscn" id="1_pyvhh"]
 [ext_resource type="PackedScene" uid="uid://bttixv3tm5fyq" path="res://scenes/part_of/symbol.tscn" id="3_8523t"]
-[ext_resource type="FontFile" uid="uid://djnbahww4q3sk" path="res://static/HYPixel11pxU-2.ttf" id="4_cmet8"]
+[ext_resource type="FontFile" uid="uid://djnbahww4q3sk" path="res://static/HYPixel.ttf" id="4_27y3l"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_1si6y"]
-font = ExtResource("4_cmet8")
+font = ExtResource("4_27y3l")
 font_size = 30
 outline_size = 1
 

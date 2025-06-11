@@ -1,0 +1,63 @@
+[gd_scene load_steps=4 format=3 uid="uid://c6elh3e7gwnu5"]
+
+[ext_resource type="Script" path="res://scripts/roots/mobileButtonRoot.gd" id="2_l8o40"]
+[ext_resource type="FontFile" uid="uid://djnbahww4q3sk" path="res://static/HYPixel.ttf" id="4_ari2e"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mhfuj"]
+bg_color = Color(0.486275, 0.486275, 0.486275, 0)
+
+[node name="moblieControl" type="Node2D"]
+
+[node name="bg" type="Panel" parent="."]
+offset_left = 112.0
+offset_top = 424.0
+offset_right = 424.0
+offset_bottom = 632.0
+scale = Vector2(0.9, 0.9)
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_mhfuj")
+
+[node name="W" type="Button" parent="bg"]
+offset_left = 112.0
+offset_top = 8.0
+offset_right = 200.0
+offset_bottom = 96.0
+theme_override_fonts/font = ExtResource("4_ari2e")
+theme_override_font_sizes/font_size = 36
+text = "W"
+script = ExtResource("2_l8o40")
+ui_input = "ui_up"
+
+[node name="S" type="Button" parent="bg"]
+offset_left = 112.0
+offset_top = 112.0
+offset_right = 200.0
+offset_bottom = 200.0
+theme_override_fonts/font = ExtResource("4_ari2e")
+theme_override_font_sizes/font_size = 36
+text = "S"
+script = ExtResource("2_l8o40")
+ui_input = "ui_down"
+
+[node name="A" type="Button" parent="bg"]
+offset_left = 8.0
+offset_top = 112.0
+offset_right = 96.0
+offset_bottom = 200.0
+theme_override_fonts/font = ExtResource("4_ari2e")
+theme_override_font_sizes/font_size = 36
+text = "A
+"
+script = ExtResource("2_l8o40")
+ui_input = "ui_left"
+
+[node name="D" type="Button" parent="bg"]
+offset_left = 216.0
+offset_top = 112.0
+offset_right = 304.0
+offset_bottom = 200.0
+theme_override_fonts/font = ExtResource("4_ari2e")
+theme_override_font_sizes/font_size = 36
+text = "D"
+script = ExtResource("2_l8o40")
+ui_input = "ui_right"

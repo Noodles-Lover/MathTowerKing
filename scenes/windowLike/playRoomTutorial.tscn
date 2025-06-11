@@ -1,0 +1,196 @@
+[gd_scene load_steps=8 format=3 uid="uid://d10qcso55axb6"]
+
+[ext_resource type="Script" path="res://scripts/roots/tutorialRoot.gd" id="1_8mi1t"]
+[ext_resource type="FontFile" uid="uid://djnbahww4q3sk" path="res://static/HYPixel.ttf" id="2_ffjxd"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mhfuj"]
+bg_color = Color(0.486275, 0.486275, 0.486275, 0.705882)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_enm0o"]
+bg_color = Color(0.996078, 0.662745, 0.619608, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4u8ma"]
+bg_color = Color(0.980392, 0.262745, 0.231373, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+expand_margin_left = 3.0
+expand_margin_top = 3.0
+expand_margin_right = 3.0
+expand_margin_bottom = 3.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kcowy"]
+bg_color = Color(0.698039, 1, 0.670588, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ys7cp"]
+bg_color = Color(0.145098, 1, 0.12549, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+expand_margin_left = 3.0
+expand_margin_top = 3.0
+expand_margin_right = 3.0
+expand_margin_bottom = 3.0
+
+[node name="playRoomTutorial" type="Node2D"]
+script = ExtResource("1_8mi1t")
+
+[node name="bg" type="Panel" parent="."]
+offset_right = 1152.0
+offset_bottom = 648.0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_mhfuj")
+metadata/_edit_lock_ = true
+
+[node name="0" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+
+[node name="status" type="RichTextLabel" parent="0"]
+layout_mode = 0
+offset_left = 237.0
+offset_top = 11.0
+offset_right = 994.0
+offset_bottom = 188.0
+bbcode_enabled = true
+text = "[font=static/HYPixel.ttf][wave amp=20 freq=5][right][font bt=5][font_size=28]这是[color=red]生命值[/color]，扣到[color=red]0[/color]游戏就结束喽→
+这是[color=green]体力[/color]，每走一步消耗1，每层会回复→
+这是[color=gray]当前层数[/color]，体力为0或地图上没有东西时会自动增加→[/font_size]"
+scroll_active = false
+
+[node name="1" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+
+[node name="inventory" type="RichTextLabel" parent="1"]
+layout_mode = 0
+offset_left = 169.0
+offset_top = 242.0
+offset_right = 926.0
+offset_bottom = 379.0
+bbcode_enabled = true
+text = "[font=static/HYPixel.ttf][font bt=5][font_size=28]这是你拥有的物品和数量
+需要在[color=red]战斗中[/color]合理运用，以避免受到大额伤害
+[wave amp=20 freq=5]请注意哪个物品少了要及时补充哦~"
+scroll_active = false
+
+[node name="ReferenceRect" type="ReferenceRect" parent="1"]
+layout_mode = 0
+offset_left = 3.0
+offset_top = 5.0
+offset_right = 144.0
+offset_bottom = 648.0
+border_width = 3.0
+editor_only = false
+
+[node name="2" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+
+[node name="ReferenceRect" type="ReferenceRect" parent="2"]
+layout_mode = 0
+offset_left = 1091.0
+offset_top = 146.0
+offset_right = 1150.0
+offset_bottom = 648.0
+border_color = Color(0.898039, 0.00784314, 0, 1)
+border_width = 3.0
+editor_only = false
+
+[node name="rune" type="RichTextLabel" parent="2"]
+layout_mode = 0
+offset_left = 544.0
+offset_top = 296.0
+offset_right = 1056.0
+offset_bottom = 472.0
+bbcode_enabled = true
+text = "[font=static/HYPixel.ttf][font_size=28][right]这是[rainbow freq=0.2 sat=1 val=1]符文[/rainbow]栏位
+会为你提供各种各样强大的被动功能
+有概率在宝箱中开出来"
+scroll_active = false
+
+[node name="3" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+
+[node name="ReferenceRect" type="ReferenceRect" parent="3"]
+layout_mode = 0
+offset_left = 270.0
+offset_top = 19.0
+offset_right = 881.0
+offset_bottom = 628.0
+border_color = Color(0.898039, 0.00784314, 0, 1)
+border_width = 3.0
+editor_only = false
+
+[node name="map" type="RichTextLabel" parent="3"]
+layout_mode = 0
+offset_left = 105.0
+offset_top = 64.0
+offset_right = 1049.0
+offset_bottom = 528.0
+bbcode_enabled = true
+text = "[shake rate=8 level=8][font=static/HYPixel.ttf][font_size=28][center]这是地图，使用wasd可以上下移动
+
+[color=yellow]宝箱[/color]会随机三个物品，你可以选择其中1个物品获得；还有小概率会出现[rainbow freq=0.2 sat=1 val=1]符文[/rainbow]哦，多开几个不会亏的！
+
+[color=green]绿色[/color]的数字是[color=green]朋友[/color]，碰到它虽然会进入战斗，但战斗所消耗的物品会在战斗后全部返还哦，并且战斗后还会获得该朋友！（朋友数值对应的物品）
+
+[color=e50200]红色[/color]的数字是[color=#e50200]敌人[/color]，战斗会消耗使用的物品，如果体力用完了，场上还有敌人的话就会扣除相应的生命值哦，所以记得一定要把场上的敌人都清空啊
+
+在高层数还可能会有营火，会恢复5点生命值和体力，是少有的回复手段哦~"
+scroll_active = false
+
+[node name="buttonContainer" type="HBoxContainer" parent="."]
+offset_left = 320.0
+offset_top = 552.0
+offset_right = 832.0
+offset_bottom = 616.0
+alignment = 1
+
+[node name="previous" type="Button" parent="buttonContainer"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_ffjxd")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxFlat_enm0o")
+theme_override_styles/hover = SubResource("StyleBoxFlat_4u8ma")
+text = "←上一个"
+
+[node name="space" type="Control" parent="buttonContainer"]
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
+
+[node name="next" type="Button" parent="buttonContainer"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_ffjxd")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxFlat_kcowy")
+theme_override_styles/hover = SubResource("StyleBoxFlat_ys7cp")
+text = "下一个→"
+
+[connection signal="pressed" from="buttonContainer/previous" to="." method="previous"]
+[connection signal="pressed" from="buttonContainer/next" to="." method="next"]
