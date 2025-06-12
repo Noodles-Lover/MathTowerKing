@@ -18,6 +18,7 @@ mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_mhfuj")
 
 [node name="W" type="Button" parent="bg"]
+layout_mode = 0
 offset_left = 112.0
 offset_top = 8.0
 offset_right = 200.0
@@ -29,6 +30,7 @@ script = ExtResource("2_l8o40")
 ui_input = "ui_up"
 
 [node name="S" type="Button" parent="bg"]
+layout_mode = 0
 offset_left = 112.0
 offset_top = 112.0
 offset_right = 200.0
@@ -40,6 +42,7 @@ script = ExtResource("2_l8o40")
 ui_input = "ui_down"
 
 [node name="A" type="Button" parent="bg"]
+layout_mode = 0
 offset_left = 8.0
 offset_top = 112.0
 offset_right = 96.0
@@ -52,6 +55,7 @@ script = ExtResource("2_l8o40")
 ui_input = "ui_left"
 
 [node name="D" type="Button" parent="bg"]
+layout_mode = 0
 offset_left = 216.0
 offset_top = 112.0
 offset_right = 304.0

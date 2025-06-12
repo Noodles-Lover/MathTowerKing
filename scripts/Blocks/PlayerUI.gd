@@ -29,8 +29,11 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):	
-#	print("PROCESS")
 	moveDetect()
+	
+	var float_speed = 4  # 浮动速度
+	var float_height = 9.0  # 浮动高度（像素）
+	self.position.y += sin(Time.get_ticks_msec() * 0.001 * float_speed) * float_height * delta
 	
 func _input(event):
 	pass
@@ -88,6 +91,7 @@ func executeBlock():
 func placePlayer(row, col) -> bool:
 	if Block.placeBlock(row, col, self):
 		self.position.y -= 20		# 因为玩家高70，Block.placeBlock为50*50
+		self.position.x += 2		# 调整为更加格子的中心
 		return true
 	return false
 
@@ -97,7 +101,7 @@ func movePlayer(row, col) -> bool:
 	if row >= Global.MAPSIZE or row < 0 or col >= Global.MAPSIZE or col < 0:
 		return false
 	
-	var target_pos = Vector2(4 + row * 54, 4 + col * 54 - 20)
+	var target_pos = Vector2(4 + row * 54 + 2, 4 + col * 54 - 20)
 	var tween = create_tween()
 	tween.tween_property(self, "position", target_pos, moveAnimationDuration)
 	return true
